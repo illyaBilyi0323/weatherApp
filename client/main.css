@@ -1,0 +1,49 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.header,.footer {
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.header {
+    background-color: #d6dedf;
+}
+
+.footer {
+    background-color: #d6dedf;
+}
+
+.clear {
+    clear: both;
+}
+
+.content {
+    position: relative;
+    min-height: 383px;
+}
+
+.large {
+    font-size: 60px;
+}
+
+.left {
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.right {
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+.center  {
+    text-align: center;
+}
