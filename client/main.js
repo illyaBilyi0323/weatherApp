@@ -71,11 +71,11 @@ var renderCityByCoords = function(lat,long){
 // };
 
 var renderWeatherByCoords = function(lat,long){
-    $.post('./api/getWeatherByCoords',{lat:lat,long:long,fake:true},function(resp){
+    $.post('./api/getWeatherByCoords',{lat:lat,long:long,fake:0},function(resp){
         var weather = resp;
         console.log(resp);
         var arr = [];
-        arr.push(`Діапазон температур ${weather.lowTemperature} - ${weather.highTemperature} ℃`);
+        arr.push(`Діапазон температур ${parseInt(weather.lowTemperature)} - ${parseInt(weather.highTemperature)} ℃`);
         arr.push(`Вологість ${weather.humidity} %`);
         arr.push(`Опис температури ${weather.temperatureDesc}`);
         arr.push(`Швидкість вітру ${weather.windSpeed} м/c`);
