@@ -5,8 +5,15 @@ const renderCityByCoords = function (lat, long) {
             $geoCity.text("Неможливо визначити");
             return;
         }
-        const city = resp.address.city;
-        $geoCity.html(city);
+        const location = resp.address;
+        const res = [];
+        if (location.city) res.push(location.city);
+        if (location.town) res.push(location.town);
+        if (location.village) res.push(location.village);
+        if (location.county) res.push(location.county);
+        if (location.state) res.push(location.state);
+        if (location.country) res.push(location.country);
+        $geoCity.html(res.join(', '));
     })
 };
 
@@ -43,13 +50,20 @@ const renderNowDate = function () {
 };
 
 const choosePlace = function (span) {
-  console.log($(span).text());
+  alert($(span).text());
 };
 
-navigator.geolocation.getCurrentPosition(function (position) {
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
+const renderAll = function(lat, long) {
     renderCityByCoords(lat, long);
     renderWeatherByCoords(lat, long);
     renderNowDate();
+};
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    navigator.geolocation.getCurrentPosition(function (position) {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        renderAll(lat, long)
+    })
 });

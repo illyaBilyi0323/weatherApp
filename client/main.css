@@ -63,6 +63,10 @@ html, body {
     font-size: 35px;
 }
 
-#site-name {
+#siteName {
     font-size: 70px;
+}
+
+#googleMap {
+    height: 500px;
 }
