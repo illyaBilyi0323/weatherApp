@@ -18,7 +18,7 @@ var renderWeatherByCoords = function(lat,long){
         var str = arr.join('<br>');
         $('#weatherDetail').html(str);
         $('#weatherIcon').attr('src',weather.iconLink);
-        $('#temp').html(parseFloat(weather.temperature));
+        $('#temp').html(Math.round(parseFloat(weather.temperature)));
 
         renderWeatherCategory(weather.skyInfo,weather.precipitationDesc,weather.temperature);
 
