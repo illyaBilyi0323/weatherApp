@@ -39,4 +39,4 @@ function startServer(port) {
     });
 }
 
-startServer(8080);
+exports.startServer = startServer;
