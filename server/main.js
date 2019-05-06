@@ -1,16 +1,15 @@
-
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 function configureEndpoints(app) {
-    var pages = require('./pages');
-    var api = require('./api');
+    const pages = require('./pages');
+    const api = require('./api');
 
 
-    app.post('/api/getCityByCoords/', api.getCityByCoords);
-    app.post('/api/getWeatherByCoords/', api.getWeatherByCoords);
-    app.post('/api/getWeatherCategory/', api.getWeatherCategory);
+    app.get('/api/getCityByCoords/', api.getCityByCoords);
+    app.get('/api/getWeatherByCoords/', api.getWeatherByCoords);
+    app.get('/api/getWeatherCategory/', api.getWeatherCategory);
 
     app.get('/', pages.mainPage);
 
@@ -21,14 +20,14 @@ function configureEndpoints(app) {
 
 function startServer(port) {
     //Створюється застосунок
-    var app = express();
+    const app = express();
 
     //Налаштування директорії з шаблонами
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'ejs');
 
     //Розбір POST запитів
-    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
 
     //Налаштовуємо сторінки
@@ -36,7 +35,7 @@ function startServer(port) {
 
     //Запуск додатка за вказаним портом
     app.listen(port, function () {
-        console.log('My Application Running on http://localhost:'+port+'/');
+        console.log('My Application Running on http://localhost:' + port + '/');
     });
 }
 
