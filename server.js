@@ -1,2 +1,3 @@
 const server = require('./server/main');
-server.startServer(80);
+const PORT = process.env.PORT || 8080;
+server.startServer(PORT);
