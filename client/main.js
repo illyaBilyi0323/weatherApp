@@ -7,7 +7,7 @@ var renderCityByCoords = function(lat,long){
 };
 
 var renderWeatherByCoords = function(lat,long){
-    $.post('./api/getWeatherByCoords',{lat:lat,long:long,fake:1},function(resp){
+    $.post('./api/getWeatherByCoords',{lat:lat,long:long,fake:0},function(resp){
         var weather = resp;
         console.log(resp);
         var arr = [];

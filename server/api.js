@@ -22,7 +22,7 @@ exports.getCityByCoords = function(req, response) {
 // https://developer.here.com/documentation/weather/topics/resource-type-weather-items.html
 exports.getWeatherByCoords = function(req, response) {
 
-    if (req.body.fake) {
+    if (req.body.fake == 1) {
         console.log('faked weather');
         var body =  fs.readFileSync('./server/fake.json') ;
         response.send(JSON.parse(body));
