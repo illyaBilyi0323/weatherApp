@@ -36,19 +36,7 @@ var renderWeatherCategory = function(skyInfo,precipitationDesc,temperature){
 };
 
 var renderNowDate = function(){
-
-    var leadZero = function(val){
-        val = val+'';
-        if (val.length==1) return '0'+val;
-        return val;
-    };
-
-    var date = new Date();
-    var day = date.getDate();
-    var month = date.getMonth()+1;
-    var year = date.getFullYear();
-    var str = leadZero(day)+'-'+leadZero(month)+'-'+leadZero(year);
-    $('#nowDate').html(str);
+    $('#nowDate').html((new Date()).toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"}));
 };
 
 navigator.geolocation.getCurrentPosition(function(position) {
