@@ -89,7 +89,7 @@ exports.getWeatherCategory = function (req, response) {
         if (temperature > 18) responseArr = ['b', 'f'];
         else responseArr = ['d', 'f'];
     } else if (cat === 2) {
-        if (temperature > 18) responseArr = ['g', 'h'];
+        if (temperature <18) responseArr = ['g', 'h'];
         else responseArr = ['b', 'a'];
     } else {
         if (temperature > 18) responseArr = ['e', 'c'];
